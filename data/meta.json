@@ -1,0 +1,9 @@
+{
+  "updatedAt": "2026-08-26T17:11:24.469578+00:00",
+  "players": 724,
+  "realAuctionPrices": 3,
+  "auctionFormat": "8 squadre / 500 crediti",
+  "listoneSource": "https://www.fantapazz.com/fantacalcio/listone-e-quotazioni",
+  "auctionSource": "https://www.fantacalcio-online.com/it/asta-fantacalcio-stima-prezzi",
+  "policy": "listone independent from auction-price availability; missing prices stay unavailable"
+}
