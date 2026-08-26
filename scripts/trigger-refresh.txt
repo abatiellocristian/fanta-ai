@@ -1,2 +1,2 @@
-FantAbba refresh trigger — 2026-08-26
-This file exists only to trigger the existing scheduled/import workflow after the final database changes.
+FantAbba definitive refresh trigger — 2026-08-26 19:10
+Primary listone: Fantapazz 2026/27. Auction prices optional; never fabricate missing values.
