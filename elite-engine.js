@@ -1,0 +1,33 @@
+/* FantAbba Elite Engine — auction command center, roster grade, mock auction and cheat sheet. */
+(()=>{
+  const $=id=>document.getElementById(id), norm=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim();
+  const R=['P','D','C','A'], S={P:3,D:8,C:8,A:6};
+  const num=v=>Number(v)||0;
+  const role=p=>p.classicRole||p.classic_role||p.roleClassic||p.role;
+  const avg=p=>num(p.auctionAvg8x500??p.auctionAvg??p.averageAuction);
+  const fvm=p=>num(p.fvm), quo=p=>num(p.quotation??p.price), fm=p=>num(p.fantamedia), pres=p=>num(p.presenze), tit=p=>num(p.titolarita??p.starter), goals=p=>num(p.gol??p.goals), assists=p=>num(p.assist??p.assists);
+  const state=()=>{try{return JSON.parse(localStorage.getItem('fantabbaState')||'{"credits":500,"roster":{"P":[],"D":[],"C":[],"A":[]},"logs":[],"opponents":[]}')}catch{return {credits:500,roster:{P:[],D:[],C:[],A:[]},logs:[],opponents:[]}}};
+  const esc=v=>String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+  function estimate(p){if(avg(p))return avg(p);const pool=(window.players||[]).filter(x=>role(x)===role(p)&&fvm(x)>0).sort((a,b)=>fvm(b)-fvm(a));const rank=Math.max(0,pool.findIndex(x=>norm(x.name)===norm(p.name)));const pct=pool.length?1-rank/Math.max(1,pool.length-1):.5;const base={P:35,D:95,C:160,A:210}[role(p)]||100;const slots=S[role(p)]||8;return Math.max(1,Math.round(base/slots*(.10+.78*pct)))}
+  const cost=p=>avg(p)||estimate(p);
+  const exp=p=>fm(p)*7+Math.min(pres(p),38)*.13+goals(p)*1.9+assists(p)*1.25+tit(p)*.035+fvm(p)*.025+quo(p)*.12;
+  const risk=p=>Math.min(5,(avg(p)?0:.8)+(pres(p)<20?2:pres(p)<28?1:0)+(tit(p)>0&&tit(p)<60?1:0)+(fm(p)>0&&fm(p)<6.2?.8:0));
+  const value=p=>exp(p)/Math.max(1,cost(p));
+  const roster=()=>Object.values(state().roster||{}).flat();
+  function addPanel(){
+    const tab=$('tab-auction'); if(!tab||$('eliteCommand'))return;
+    const el=document.createElement('section'); el.id='eliteCommand'; el.className='elite-command';
+    el.innerHTML='<div class="elite-head"><div><span class="kicker">FANTABBA ELITE</span><h2>Command Center</h2><p>Decisioni dinamiche: il valore cambia quando cambiano budget, slot e giocatori disponibili.</p></div><div class="elite-live"><span></span> LIVE ENGINE</div></div><div id="eliteMetrics" class="elite-metrics"></div><div class="elite-actions"><button data-e="grade">VALUTA ROSA</button><button data-e="cheat">CHEAT SHEET</button><button data-e="mock">SIMULA ASTA</button><button data-e="plan">PIANO ASTA</button></div><div id="eliteOutput" class="elite-output"></div>';
+    tab.insertBefore(el,tab.children[0]);
+    el.querySelectorAll('button[data-e]').forEach(b=>b.onclick=()=>run(b.dataset.e));
+    refresh();
+  }
+  function refresh(){const s=state(), rr=s.roster||{}, used=roster().length, metrics=[['CREDITI',`${s.credits||0} CR`],['ROSA',`${used}/25`],['SLOT',R.map(r=>`${r} ${rr[r]?.length||0}/${S[r]}`).join(' · ')],['SPESA TARGET',`${Math.max(0,500-(s.credits||0))} CR`]];const box=$('eliteMetrics');if(box)box.innerHTML=metrics.map(x=>`<div><small>${x[0]}</small><b>${esc(x[1])}</b></div>`).join('');}
+  function render(html){const o=$('eliteOutput');if(o)o.innerHTML=html;}
+  function run(k){const ps=(window.players||[]).filter(p=>p.name); if(k==='grade')return grade();if(k==='cheat')return cheat(ps);if(k==='mock')return mock(ps);if(k==='plan')return plan(ps);}
+  function grade(){const s=state(), rr=s.roster||{}, all=roster(), by=r=>rr[r]||[], need=R.reduce((z,r)=>z+Math.max(0,S[r]-by(r).length),0);let score=70;R.forEach(r=>{const n=by(r).length;if(n<S[r])score-=Math.min(12,(S[r]-n)*3);});const spent=500-(s.credits||0);if(spent>0&&spent<450)score+=4;if(need===0)score+=8;score=Math.max(0,Math.min(100,Math.round(score)));const flags=[];if(need)flags.push(`Mancano ${need} slot`);if((s.credits||0)<need)flags.push('Margine di chiusura troppo basso');if(!flags.length)flags.push('Struttura completa: ora conta la qualità dei titolari');render(`<div class="elite-result"><div class="grade"><strong>${score}</strong><span>/100</span></div><div><h3>Roster Grade</h3><p>${flags.join(' · ')}</p><div class="elite-bars">${R.map(r=>`<div><span>${r}</span><i><b style="width:${Math.min(100,(by(r).length/S[r])*100)}%"></b></i><em>${by(r).length}/${S[r]}</em></div>`).join('')}</div></div></div>`);}
+  function cheat(ps){const q=ps.map(p=>({p,v:value(p),c:cost(p)})).sort((a,b)=>b.v-a.v).slice(0,24);render(`<h3>Cheat Sheet dinamica</h3><p class="elite-muted">Ordine per rendimento atteso per credito. MEDIA = prezzo osservato; STIMA = modello.</p><div class="elite-table"><div class="eh"><b>PLAYER</b><b>RUOLO</b><b>PREZZO</b><b>VALUE</b><b>AZIONE</b></div>${q.map(x=>`<div><span><b>${esc(x.p.name)}</b><small>${esc(x.p.team||'')}</small></span><b>${role(x.p)}</b><b>${x.c} ${avg(x.p)?'<small>MEDIA</small>':'<small>STIMA</small>'}</b><b>${x.v.toFixed(2)}</b><strong>${x.v>.32?'TARGET':x.v>.20?'WATCH':'PASS'}</strong></div>`).join('')}</div>`);}
+  function mock(ps){const budget=500, counts={P:0,D:0,C:0,A:0}, picks=[];const pool=ps.filter(p=>S[role(p)]).sort((a,b)=>value(b)-value(a));let spent=0;for(const p of pool){const r=role(p);if(counts[r]>=S[r])continue;const c=Math.min(cost(p),budget-spent);const remaining=25-picks.length;if(c>budget-spent-(remaining-1))continue;picks.push(p);counts[r]++;spent+=Math.max(1,Math.round(c));if(picks.length===25)break;}render(`<h3>Simulazione asta</h3><p class="elite-muted">Scenario deterministico: costruzione sotto 500 CR usando il mercato disponibile nel database. Non è una previsione dell'asta reale.</p><div class="mock-summary"><b>${picks.length}/25</b><span>${spent} CR spesi</span><span>${500-spent} CR residui</span></div><div class="mock-grid">${R.map(r=>`<div><h4>${r}</h4>${picks.filter(p=>role(p)===r).map(p=>`<p>${esc(p.name)} <b>${Math.round(cost(p))}</b></p>`).join('')}</div>`).join('')}</div>`);}
+  function plan(ps){const by={P:[],D:[],C:[],A:[]};ps.forEach(p=>{if(by[role(p)])by[role(p)].push(p)});const targets={P:35,D:95,C:160,A:210};render(`<h3>Piano d'asta 500 CR</h3><p class="elite-muted">Non è una regola fissa: è un budget operativo che si adatta ai giocatori rimasti.</p><div class="plan-cards">${R.map(r=>{const n=S[r], avgTarget=Math.round(targets[r]/n);const best=by[r].sort((a,b)=>value(b)-value(a)).slice(0,3);return `<div><small>${r}</small><b>${targets[r]} CR</b><span>${n} slot · ${avgTarget} CR/slot</span>${best.map(p=>`<p>${esc(p.name)} <strong>${Math.round(cost(p))}</strong></p>`).join('')}</div>`}).join('')}</div>`);}
+  const boot=()=>{addPanel();setInterval(refresh,1200)};document.readyState==='loading'?document.addEventListener('DOMContentLoaded',boot):boot();
+})();
