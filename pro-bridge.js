@@ -1,0 +1,1 @@
+(()=>{async function boot(){try{const r=await fetch('data/players.json?pro='+Date.now(),{cache:'no-store'});const d=await r.json();if(Array.isArray(d))window.players=d}catch(e){window.players=window.players||[]}}window.fantabbaDataReady=boot();})();
