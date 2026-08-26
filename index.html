@@ -1,1742 +1,267 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fantacalcio Auction Manager</title>
 
-<style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #0b0f14;
-    color: #f5f5f5;
-    min-height: 100vh;
-}
+<title>FantaAI 26/27</title>
 
-button,
-input,
-select {
-    font: inherit;
-}
+<link
+    rel="stylesheet"
+    href="style.css"
+>
 
-button {
-    cursor: pointer;
-}
-
-/* HEADER */
-
-header {
-    background: #111821;
-    border-bottom: 1px solid #26313d;
-    padding: 18px 25px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: 800;
-    letter-spacing: -0.5px;
-}
-
-.logo span {
-    color: #6cff8d;
-}
-
-.header-actions {
-    display: flex;
-    gap: 8px;
-}
-
-/* LAYOUT */
-
-.container {
-    max-width: 1400px;
-    margin: auto;
-    padding: 25px;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 20px;
-}
-
-.card {
-    background: #111821;
-    border: 1px solid #26313d;
-    border-radius: 15px;
-    padding: 20px;
-    margin-bottom: 20px;
-}
-
-.card h2 {
-    font-size: 18px;
-    margin-bottom: 18px;
-}
-
-.card h3 {
-    font-size: 15px;
-    margin-bottom: 10px;
-    color: #aab4c0;
-}
-
-/* SETUP */
-
-.setup-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
-}
-
-.input-group {
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-}
-
-.input-group label {
-    color: #8e9aa8;
-    font-size: 12px;
-}
-
-input,
-select {
-    background: #0b0f14;
-    color: white;
-    border: 1px solid #303b48;
-    border-radius: 9px;
-    padding: 11px;
-    outline: none;
-}
-
-input:focus,
-select:focus {
-    border-color: #6cff8d;
-}
-
-/* BUTTONS */
-
-.btn {
-    border: 0;
-    border-radius: 9px;
-    padding: 11px 15px;
-    font-weight: 700;
-    transition: .15s;
-}
-
-.btn:hover {
-    transform: translateY(-1px);
-}
-
-.btn-primary {
-    background: #6cff8d;
-    color: #07100a;
-}
-
-.btn-danger {
-    background: #ff5964;
-    color: white;
-}
-
-.btn-secondary {
-    background: #27313d;
-    color: white;
-}
-
-.btn-warning {
-    background: #ffbf4b;
-    color: #111;
-}
-
-.btn-full {
-    width: 100%;
-}
-
-/* AUCTION */
-
-.auction {
-    text-align: center;
-}
-
-.current-player {
-    background: #0b0f14;
-    border: 1px solid #303b48;
-    border-radius: 14px;
-    padding: 25px;
-    margin-bottom: 20px;
-}
-
-.player-name {
-    font-size: 31px;
-    font-weight: 800;
-    margin-bottom: 8px;
-}
-
-.player-role {
-    display: inline-block;
-    padding: 5px 10px;
-    border-radius: 20px;
-    background: #27313d;
-    color: #b7c2cf;
-    font-size: 12px;
-    margin-bottom: 18px;
-}
-
-.price {
-    font-size: 52px;
-    font-weight: 900;
-    color: #6cff8d;
-}
-
-.price small {
-    font-size: 18px;
-    color: #8994a1;
-}
-
-.auction-controls {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-}
-
-.auction-controls .btn {
-    padding: 16px;
-}
-
-.bid-input {
-    width: 100%;
-    font-size: 20px;
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-/* MAX BID */
-
-.max-bid {
-    background: rgba(108,255,141,.08);
-    border: 1px solid rgba(108,255,141,.25);
-    border-radius: 12px;
-    padding: 15px;
-    margin-top: 15px;
-}
-
-.max-bid-title {
-    color: #91a0ae;
-    font-size: 12px;
-    margin-bottom: 5px;
-}
-
-.max-bid-value {
-    font-size: 27px;
-    font-weight: 800;
-    color: #6cff8d;
-}
-
-/* PARTICIPANTS */
-
-.participants {
-    display: grid;
-    gap: 10px;
-}
-
-.participant {
-    background: #0b0f14;
-    border: 1px solid #293440;
-    border-radius: 12px;
-    padding: 13px;
-}
-
-.participant-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 9px;
-}
-
-.participant-name {
-    font-weight: 800;
-}
-
-.credits {
-    color: #6cff8d;
-    font-weight: 700;
-}
-
-.progress {
-    width: 100%;
-    height: 6px;
-    background: #222a33;
-    border-radius: 20px;
-    overflow: hidden;
-}
-
-.progress-bar {
-    height: 100%;
-    background: #6cff8d;
-    width: 0%;
-}
-
-.roster-count {
-    font-size: 12px;
-    color: #8d98a5;
-    margin-top: 7px;
-}
-
-/* TABLE */
-
-.table-wrapper {
-    overflow-x: auto;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-th,
-td {
-    padding: 12px 9px;
-    border-bottom: 1px solid #26313d;
-    text-align: left;
-    font-size: 13px;
-}
-
-th {
-    color: #7f8a98;
-    font-size: 11px;
-    text-transform: uppercase;
-}
-
-.role {
-    padding: 4px 7px;
-    background: #27313d;
-    border-radius: 6px;
-    font-size: 10px;
-}
-
-/* MY TEAM */
-
-.my-team {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-}
-
-.team-box {
-    background: #0b0f14;
-    border: 1px solid #293440;
-    border-radius: 10px;
-    padding: 10px;
-}
-
-.team-box h4 {
-    font-size: 11px;
-    color: #778392;
-    margin-bottom: 8px;
-}
-
-.team-player {
-    padding: 7px 0;
-    border-bottom: 1px solid #202833;
-    font-size: 13px;
-}
-
-.team-player:last-child {
-    border-bottom: 0;
-}
-
-/* EMPTY */
-
-.empty {
-    color: #697583;
-    font-size: 13px;
-    text-align: center;
-    padding: 15px;
-}
-
-/* TOAST */
-
-.toast {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    background: #18212b;
-    border: 1px solid #33404e;
-    padding: 13px 17px;
-    border-radius: 10px;
-    opacity: 0;
-    transform: translateY(20px);
-    pointer-events: none;
-    transition: .25s;
-    z-index: 1000;
-}
-
-.toast.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* RESPONSIVE */
-
-@media (max-width: 950px) {
-    .grid {
-        grid-template-columns: 1fr;
-    }
-
-    .setup-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media (max-width: 600px) {
-    header {
-        padding: 15px;
-    }
-
-    .container {
-        padding: 12px;
-    }
-
-    .setup-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .my-team {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .player-name {
-        font-size: 25px;
-    }
-
-    .price {
-        font-size: 42px;
-    }
-}
-</style>
 </head>
+
 
 <body>
 
+
 <header>
+
     <div class="logo">
-        Fanta<span>Manager</span>
+        Fanta<span>AI</span> 26/27
     </div>
 
-    <div class="header-actions">
-        <button class="btn btn-secondary" onclick="saveGame()">
-            Salva
-        </button>
+    <div class="header-right">
 
-        <button class="btn btn-danger" onclick="resetGame()">
-            Reset
-        </button>
+        <span>
+            Budget:
+            <strong id="myCredits">
+                500
+            </strong>
+        </span>
+
     </div>
+
 </header>
 
 
-<div class="container">
+<main class="container">
 
-    <!-- CONFIGURAZIONE -->
 
-    <div class="card">
-        <h2>Configurazione asta</h2>
+    <!-- DASHBOARD -->
 
-        <div class="setup-grid">
+    <section class="dashboard">
 
-            <div class="input-group">
-                <label>Partecipanti</label>
-                <input id="participantsInput" type="number" value="8" min="2" max="20">
-            </div>
+        <div class="dashboard-card">
 
-            <div class="input-group">
-                <label>Budget</label>
-                <input id="budgetInput" type="number" value="500" min="1">
-            </div>
+            <span>
+                CREDITI
+            </span>
 
-            <div class="input-group">
-                <label>Nome della tua squadra</label>
-                <input id="myTeamInput" type="text" value="La Mia Squadra">
-            </div>
-
-            <div class="input-group">
-                <label>Nome partecipante</label>
-                <input id="newParticipantInput" type="text" placeholder="Es. Cristian">
-            </div>
+            <strong id="myCredits">
+                500
+            </strong>
 
         </div>
 
-        <br>
 
-        <button class="btn btn-primary" onclick="addParticipant()">
-            + Aggiungi partecipante
-        </button>
+        <div class="dashboard-card">
 
-        <button class="btn btn-secondary" onclick="startNewAuction()">
-            Nuova asta
-        </button>
-    </div>
+            <span>
+                ROSA
+            </span>
 
+            <strong>
+                0/25
+            </strong>
 
-    <div class="grid">
-
-        <!-- COLONNA SINISTRA -->
-
-        <div>
-
-            <div class="card auction">
-
-                <h2>Asta in corso</h2>
-
-                <div class="current-player">
-
-                    <div id="currentPlayerName" class="player-name">
-                        Nessun giocatore
-                    </div>
-
-                    <div id="currentPlayerRole" class="player-role">
-                        —
-                    </div>
-
-                    <div class="price">
-                        <span id="currentPrice">0</span>
-                        <small> crediti</small>
-                    </div>
-
-                </div>
+        </div>
 
 
-                <div class="input-group">
+        <div class="dashboard-card">
 
-                    <label>Giocatore chiamato</label>
+            <span>
+                ASTA
+            </span>
 
-                    <input
-                        id="playerNameInput"
-                        type="text"
-                        placeholder="Es. Lautaro Martinez"
-                    >
+            <strong>
+                8
+            </strong>
 
-                </div>
-
-                <br>
-
-                <div class="input-group">
-
-                    <label>Ruolo</label>
-
-                    <select id="playerRoleInput">
-                        <option value="P">Portiere</option>
-                        <option value="D">Difensore</option>
-                        <option value="C">Centrocampista</option>
-                        <option value="A">Attaccante</option>
-                    </select>
-
-                </div>
-
-                <br>
-
-                <button
-                    class="btn btn-secondary btn-full"
-                    onclick="startPlayer()"
-                >
-                    Chiama giocatore
-                </button>
-
-                <br><br>
-
-                <input
-                    id="bidInput"
-                    class="bid-input"
-                    type="number"
-                    min="1"
-                    value="1"
-                    placeholder="Prezzo"
-                >
-
-                <div class="auction-controls">
-
-                    <button
-                        class="btn btn-primary"
-                        onclick="placeBid()"
-                    >
-                        Rilancia
-                    </button>
-
-                    <button
-                        class="btn btn-warning"
-                        onclick="sellPlayer()"
-                    >
-                        Assegna giocatore
-                    </button>
-
-                </div>
-
-                <button
-                    class="btn btn-danger btn-full"
-                    style="margin-top:10px"
-                    onclick="cancelAuction()"
-                >
-                    Annulla asta
-                </button>
+        </div>
 
 
-                <div class="max-bid">
+        <div class="dashboard-card">
 
-                    <div class="max-bid-title">
-                        MASSIMO CONSIGLIATO PER LA TUA SQUADRA
-                    </div>
+            <span>
+                STATO
+            </span>
 
-                    <div
-                        id="maxBid"
-                        class="max-bid-value"
-                    >
-                        —
-                    </div>
+            <strong>
+                PRONTO
+            </strong>
 
-                </div>
+        </div>
 
-            </div>
+    </section>
 
 
-            <!-- LA MIA ROSA -->
 
-            <div class="card">
+    <!-- CERCA -->
 
-                <h2>La mia rosa</h2>
+    <section class="card">
 
-                <div id="myTeam" class="my-team"></div>
+        <div class="section-title">
 
-            </div>
+            <div>
 
+                <h2>
+                    Listone 2026/27
+                </h2>
 
-            <!-- STORICO -->
-
-            <div class="card">
-
-                <h2>Storico acquisti</h2>
-
-                <div class="table-wrapper">
-
-                    <table>
-
-                        <thead>
-
-                            <tr>
-                                <th>Giocatore</th>
-                                <th>Ruolo</th>
-                                <th>Squadra</th>
-                                <th>Prezzo</th>
-                            </tr>
-
-                        </thead>
-
-                        <tbody id="historyBody"></tbody>
-
-                    </table>
-
-                </div>
+                <p>
+                    Cerca e analizza qualsiasi giocatore.
+                </p>
 
             </div>
 
         </div>
 
 
-        <!-- COLONNA DESTRA -->
+        <div class="search-row">
 
-        <div>
-
-            <div class="card">
-
-                <h2>Partecipanti</h2>
-
-                <div id="participants" class="participants"></div>
-
-            </div>
+            <input
+                id="playerSearch"
+                type="text"
+                placeholder="Cerca giocatore o squadra..."
+            >
 
 
-            <div class="card">
+            <button
+                onclick="filterRole('ALL')"
+            >
+                TUTTI
+            </button>
 
-                <h2>Regole rosa</h2>
+            <button
+                onclick="filterRole('P')"
+            >
+                P
+            </button>
 
-                <div style="color:#9aa5b2;line-height:1.8;font-size:13px">
+            <button
+                onclick="filterRole('D')"
+            >
+                D
+            </button>
 
-                    <div>
-                        Portieri:
-                        <strong>3</strong>
-                    </div>
+            <button
+                onclick="filterRole('C')"
+            >
+                C
+            </button>
 
-                    <div>
-                        Difensori:
-                        <strong>8</strong>
-                    </div>
+            <button
+                onclick="filterRole('A')"
+            >
+                A
+            </button>
 
-                    <div>
-                        Centrocampisti:
-                        <strong>8</strong>
-                    </div>
-
-                    <div>
-                        Attaccanti:
-                        <strong>6</strong>
-                    </div>
-
-                    <br>
-
-                    <div>
-                        MVP:
-                        <strong>+1</strong>
-                    </div>
-
-                    <div>
-                        Portiere imbattuto:
-                        <strong>+1</strong>
-                    </div>
-
-                </div>
-
-            </div>
+        </div>
 
 
-            <div class="card">
+        <div
+            id="playersList"
+            class="players-list"
+        ></div>
 
-                <h2>Situazione asta</h2>
+    </section>
 
-                <div id="auctionStatus"
-                     style="color:#9aa5b2;font-size:14px;line-height:1.7">
 
-                    Nessuna asta attiva.
 
-                </div>
+    <!-- ANALISI -->
+
+    <section
+        id="playerDetails"
+        class="card"
+    >
+
+        <div class="empty">
+
+            Seleziona un giocatore dal listone.
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ASTA -->
+
+    <section class="card">
+
+        <div class="section-title">
+
+            <div>
+
+                <h2>
+                    Assistente asta
+                </h2>
+
+                <p>
+                    Controlla prezzi, rilanci e alternative.
+                </p>
 
             </div>
 
         </div>
 
-    </div>
 
-</div>
+        <div
+            id="auctionPanel"
+            class="auction-panel"
+        >
 
+            <div class="empty">
 
-<div id="toast" class="toast"></div>
+                Nessuna asta attiva.
 
+            </div>
 
-<script>
+        </div>
 
-/* =========================================================
-   CONFIGURAZIONE
-========================================================= */
+    </section>
 
-const squadLimits = {
-    P: 3,
-    D: 8,
-    C: 8,
-    A: 6
-};
 
-const roleNames = {
-    P: "Portiere",
-    D: "Difensore",
-    C: "Centrocampista",
-    A: "Attaccante"
-};
 
+    <!-- ROSA -->
 
-/* =========================================================
-   STATO DEL GIOCO
-========================================================= */
+    <section class="card">
 
-let game = {
+        <div class="section-title">
 
-    budget: 500,
+            <div>
 
-    myTeamName: "La Mia Squadra",
+                <h2>
+                    La mia rosa
+                </h2>
 
-    participants: [],
+            </div>
 
-    playersBought: [],
+        </div>
 
-    currentAuction: null
 
-};
+        <div
+            id="myRoster"
+            class="my-roster"
+        ></div>
 
+    </section>
 
-/* =========================================================
-   AVVIO
-========================================================= */
 
-window.onload = function() {
+</main>
 
-    loadGame();
 
-    render();
-
-};
-
-
-/* =========================================================
-   PARTECIPANTI
-========================================================= */
-
-function addParticipant() {
-
-    const input =
-        document.getElementById("newParticipantInput");
-
-    const name = input.value.trim();
-
-    if (!name) {
-
-        showToast("Inserisci un nome.");
-
-        return;
-    }
-
-    if (
-        game.participants.some(
-            p => p.name.toLowerCase() === name.toLowerCase()
-        )
-    ) {
-
-        showToast("Questo partecipante esiste già.");
-
-        return;
-    }
-
-    game.participants.push({
-
-        name: name,
-
-        credits: game.budget,
-
-        roster: {
-            P: [],
-            D: [],
-            C: [],
-            A: []
-        }
-
-    });
-
-    input.value = "";
-
-    saveGame();
-
-    render();
-
-    showToast("Partecipante aggiunto.");
-
-}
-
-
-function startNewAuction() {
-
-    const participants =
-        parseInt(
-            document.getElementById("participantsInput").value
-        );
-
-    const budget =
-        parseInt(
-            document.getElementById("budgetInput").value
-        );
-
-    const myTeamName =
-        document.getElementById("myTeamInput").value.trim()
-        || "La Mia Squadra";
-
-
-    if (!participants || participants < 2) {
-
-        showToast("Numero partecipanti non valido.");
-
-        return;
-    }
-
-    game = {
-
-        budget: budget,
-
-        myTeamName: myTeamName,
-
-        participants: [],
-
-        playersBought: [],
-
-        currentAuction: null
-
-    };
-
-
-    for (let i = 1; i <= participants; i++) {
-
-        game.participants.push({
-
-            name: i === 1 ? myTeamName : "Squadra " + i,
-
-            credits: budget,
-
-            roster: {
-                P: [],
-                D: [],
-                C: [],
-                A: []
-            }
-
-        });
-
-    }
-
-    saveGame();
-
-    render();
-
-    showToast("Nuova asta creata.");
-
-}
-
-
-/* =========================================================
-   ASTA
-========================================================= */
-
-function startPlayer() {
-
-    const name =
-        document.getElementById("playerNameInput")
-        .value.trim();
-
-    const role =
-        document.getElementById("playerRoleInput")
-        .value;
-
-
-    if (!name) {
-
-        showToast("Inserisci il nome del giocatore.");
-
-        return;
-    }
-
-
-    if (
-        game.playersBought.some(
-            p => p.player.toLowerCase() === name.toLowerCase()
-        )
-    ) {
-
-        showToast("Questo giocatore è già stato acquistato.");
-
-        return;
-    }
-
-
-    game.currentAuction = {
-
-        player: name,
-
-        role: role,
-
-        price: 1,
-
-        highestBidder: null
-
-    };
-
-
-    document.getElementById("bidInput").value = 1;
-
-    saveGame();
-
-    render();
-
-    showToast(name + " è stato chiamato.");
-
-}
-
-
-function placeBid() {
-
-    if (!game.currentAuction) {
-
-        showToast("Prima chiama un giocatore.");
-
-        return;
-    }
-
-
-    const bid =
-        parseInt(
-            document.getElementById("bidInput").value
-        );
-
-
-    if (!bid || bid <= game.currentAuction.price) {
-
-        showToast(
-            "Il rilancio deve essere superiore al prezzo attuale."
-        );
-
-        return;
-    }
-
-
-    const bidder =
-        prompt(
-            "Chi ha rilanciato? Inserisci il nome esatto della squadra."
-        );
-
-
-    if (!bidder) return;
-
-
-    const participant =
-        game.participants.find(
-            p => p.name.toLowerCase() === bidder.toLowerCase()
-        );
-
-
-    if (!participant) {
-
-        showToast("Partecipante non trovato.");
-
-        return;
-    }
-
-
-    if (bid > participant.credits) {
-
-        showToast("Questa squadra non ha abbastanza crediti.");
-
-        return;
-    }
-
-
-    if (
-        participant.roster[
-            game.currentAuction.role
-        ].length >=
-        squadLimits[
-            game.currentAuction.role
-        ]
-    ) {
-
-        showToast(
-            participant.name +
-            " ha già completato questo ruolo."
-        );
-
-        return;
-    }
-
-
-    game.currentAuction.price = bid;
-
-    game.currentAuction.highestBidder =
-        participant.name;
-
-
-    saveGame();
-
-    render();
-
-    showToast(
-        participant.name +
-        " rilancia a " +
-        bid
-    );
-
-}
-
-
-function sellPlayer() {
-
-    if (!game.currentAuction) {
-
-        showToast("Nessuna asta attiva.");
-
-        return;
-    }
-
-
-    if (!game.currentAuction.highestBidder) {
-
-        showToast(
-            "Devi prima indicare chi ha fatto l'offerta."
-        );
-
-        return;
-    }
-
-
-    const auction = game.currentAuction;
-
-
-    const participant =
-        game.participants.find(
-            p => p.name === auction.highestBidder
-        );
-
-
-    if (!participant) {
-
-        showToast("Errore partecipante.");
-
-        return;
-    }
-
-
-    if (auction.price > participant.credits) {
-
-        showToast("Crediti insufficienti.");
-
-        return;
-    }
-
-
-    participant.credits -= auction.price;
-
-
-    participant.roster[
-        auction.role
-    ].push({
-
-        name: auction.player,
-
-        price: auction.price
-
-    });
-
-
-    game.playersBought.push({
-
-        player: auction.player,
-
-        role: auction.role,
-
-        team: participant.name,
-
-        price: auction.price
-
-    });
-
-
-    game.currentAuction = null;
-
-
-    document.getElementById("playerNameInput").value = "";
-
-
-    saveGame();
-
-    render();
-
-    showToast(
-        auction.player +
-        " acquistato da " +
-        participant.name +
-        " per " +
-        auction.price +
-        " crediti."
-    );
-
-}
-
-
-function cancelAuction() {
-
-    game.currentAuction = null;
-
-    saveGame();
-
-    render();
-
-    showToast("Asta annullata.");
-
-}
-
-
-/* =========================================================
-   CALCOLO MASSIMO
-========================================================= */
-
-function calculateMaxBid() {
-
-    const me =
-        game.participants[0];
-
-    if (!me) return null;
-
-
-    let role = null;
-
-
-    if (game.currentAuction) {
-
-        role = game.currentAuction.role;
-
-    }
-
-
-    if (!role) {
-
-        return me.credits;
-
-    }
-
-
-    const playersInRole =
-        me.roster[role].length;
-
-
-    const remainingSlots =
-        squadLimits[role] -
-        playersInRole;
-
-
-    if (remainingSlots <= 0) {
-
-        return 0;
-
-    }
-
-
-    let mandatorySpending = 0;
-
-
-    for (const r of ["P", "D", "C", "A"]) {
-
-        const slots =
-            squadLimits[r] -
-            me.roster[r].length;
-
-
-        if (r !== role) {
-
-            mandatorySpending +=
-                Math.max(0, slots - 1);
-
-        }
-
-    }
-
-
-    const max =
-        Math.max(
-            0,
-            me.credits -
-            mandatorySpending
-        );
-
-
-    return max;
-
-}
-
-
-/* =========================================================
-   RENDER
-========================================================= */
-
-function render() {
-
-    renderParticipants();
-
-    renderAuction();
-
-    renderMyTeam();
-
-    renderHistory();
-
-}
-
-
-/* =========================================================
-   PARTECIPANTI UI
-========================================================= */
-
-function renderParticipants() {
-
-    const container =
-        document.getElementById("participants");
-
-    container.innerHTML = "";
-
-
-    game.participants.forEach(
-        (p, index) => {
-
-            const totalSlots =
-                25;
-
-            const filled =
-                p.roster.P.length +
-                p.roster.D.length +
-                p.roster.C.length +
-                p.roster.A.length;
-
-
-            const percent =
-                Math.min(
-                    100,
-                    (filled / totalSlots) * 100
-                );
-
-
-            const div =
-                document.createElement("div");
-
-            div.className = "participant";
-
-
-            div.innerHTML = `
-
-                <div class="participant-top">
-
-                    <div class="participant-name">
-
-                        ${escapeHtml(p.name)}
-
-                    </div>
-
-                    <div class="credits">
-
-                        ${p.credits} cr
-
-                    </div>
-
-                </div>
-
-                <div class="progress">
-
-                    <div
-                        class="progress-bar"
-                        style="width:${percent}%"
-                    ></div>
-
-                </div>
-
-                <div class="roster-count">
-
-                    Rosa:
-                    ${filled}/25
-
-                    &nbsp; | &nbsp;
-
-                    P ${p.roster.P.length}/3
-
-                    · D ${p.roster.D.length}/8
-
-                    · C ${p.roster.C.length}/8
-
-                    · A ${p.roster.A.length}/6
-
-                </div>
-
-            `;
-
-
-            container.appendChild(div);
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   ASTA UI
-========================================================= */
-
-function renderAuction() {
-
-    const name =
-        document.getElementById("currentPlayerName");
-
-    const role =
-        document.getElementById("currentPlayerRole");
-
-    const price =
-        document.getElementById("currentPrice");
-
-    const maxBid =
-        document.getElementById("maxBid");
-
-    const status =
-        document.getElementById("auctionStatus");
-
-
-    if (!game.currentAuction) {
-
-        name.textContent =
-            "Nessun giocatore";
-
-        role.textContent =
-            "—";
-
-        price.textContent =
-            "0";
-
-        maxBid.textContent =
-            "—";
-
-        status.innerHTML =
-            "Nessuna asta attiva.";
-
-        return;
-
-    }
-
-
-    const auction =
-        game.currentAuction;
-
-
-    name.textContent =
-        auction.player;
-
-
-    role.textContent =
-        roleNames[auction.role];
-
-
-    price.textContent =
-        auction.price;
-
-
-    const max =
-        calculateMaxBid();
-
-
-    maxBid.textContent =
-        max !== null
-            ? max + " crediti"
-            : "—";
-
-
-    status.innerHTML = `
-
-        <strong>
-            ${escapeHtml(auction.player)}
-        </strong>
-        <br>
-
-        Ruolo:
-        ${roleNames[auction.role]}
-        <br>
-
-        Prezzo:
-        ${auction.price} crediti
-        <br>
-
-        In testa:
-        ${
-            auction.highestBidder
-            ? escapeHtml(auction.highestBidder)
-            : "Nessuno"
-        }
-
-    `;
-
-}
-
-
-/* =========================================================
-   MIA ROSA
-========================================================= */
-
-function renderMyTeam() {
-
-    const container =
-        document.getElementById("myTeam");
-
-    container.innerHTML = "";
-
-
-    const me =
-        game.participants[0];
-
-
-    if (!me) {
-
-        container.innerHTML =
-            '<div class="empty">Nessuna squadra.</div>';
-
-        return;
-    }
-
-
-    const roles =
-        ["P", "D", "C", "A"];
-
-
-    roles.forEach(
-        role => {
-
-            const box =
-                document.createElement("div");
-
-            box.className =
-                "team-box";
-
-
-            let html =
-                `<h4>
-                    ${roleNames[role]}
-                    ${me.roster[role].length}/${squadLimits[role]}
-                </h4>`;
-
-
-            if (
-                me.roster[role].length === 0
-            ) {
-
-                html +=
-                    `<div class="empty">
-                        Vuoto
-                    </div>`;
-
-            }
-
-
-            me.roster[role].forEach(
-                player => {
-
-                    html += `
-
-                        <div class="team-player">
-
-                            ${escapeHtml(player.name)}
-
-                            <span style="
-                                float:right;
-                                color:#6cff8d
-                            ">
-
-                                ${player.price}
-
-                            </span>
-
-                        </div>
-
-                    `;
-
-                }
-            );
-
-
-            box.innerHTML =
-                html;
-
-
-            container.appendChild(box);
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   STORICO
-========================================================= */
-
-function renderHistory() {
-
-    const body =
-        document.getElementById("historyBody");
-
-    body.innerHTML = "";
-
-
-    if (
-        game.playersBought.length === 0
-    ) {
-
-        body.innerHTML = `
-
-            <tr>
-                <td colspan="4" class="empty">
-                    Nessun acquisto ancora.
-                </td>
-            </tr>
-
-        `;
-
-        return;
-
-    }
-
-
-    game.playersBought
-        .slice()
-        .reverse()
-        .forEach(
-            p => {
-
-                const tr =
-                    document.createElement("tr");
-
-
-                tr.innerHTML = `
-
-                    <td>
-                        ${escapeHtml(p.player)}
-                    </td>
-
-                    <td>
-                        <span class="role">
-                            ${roleNames[p.role]}
-                        </span>
-                    </td>
-
-                    <td>
-                        ${escapeHtml(p.team)}
-                    </td>
-
-                    <td>
-                        <strong>
-                            ${p.price}
-                        </strong>
-                    </td>
-
-                `;
-
-
-                body.appendChild(tr);
-
-            }
-        );
-
-}
-
-
-/* =========================================================
-   SALVATAGGIO
-========================================================= */
-
-function saveGame() {
-
-    localStorage.setItem(
-        "fantamanager_game",
-        JSON.stringify(game)
-    );
-
-}
-
-
-function loadGame() {
-
-    const saved =
-        localStorage.getItem(
-            "fantamanager_game"
-        );
-
-
-    if (!saved) {
-
-        startNewAuction();
-
-        return;
-
-    }
-
-
-    try {
-
-        game =
-            JSON.parse(saved);
-
-    } catch (error) {
-
-        console.error(error);
-
-        startNewAuction();
-
-    }
-
-}
-
-
-/* =========================================================
-   RESET
-========================================================= */
-
-function resetGame() {
-
-    const confirmation =
-        confirm(
-            "Sei sicuro? Verranno cancellati tutti gli acquisti e le rose."
-        );
-
-
-    if (!confirmation) return;
-
-
-    localStorage.removeItem(
-        "fantamanager_game"
-    );
-
-
-    startNewAuction();
-
-    showToast("Asta resettata.");
-
-}
-
-
-/* =========================================================
-   TOAST
-========================================================= */
-
-function showToast(message) {
-
-    const toast =
-        document.getElementById("toast");
-
-
-    toast.textContent =
-        message;
-
-
-    toast.classList.add("show");
-
-
-    setTimeout(
-        () => {
-            toast.classList.remove("show");
-        },
-        2200
-    );
-
-}
-
-
-/* =========================================================
-   SICUREZZA HTML
-========================================================= */
-
-function escapeHtml(text) {
-
-    const div =
-        document.createElement("div");
-
-    div.textContent =
-        text;
-
-    return div.innerHTML;
-
-}
-
-</script>
+<script src="app.js"></script>
 
 </body>
+
 </html>
