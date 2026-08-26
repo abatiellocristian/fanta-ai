@@ -1,0 +1,2 @@
+// FantAbba compatibility layer: the old decision engine expects this node.
+(()=>{if(!document.getElementById('aiSummary')){const n=document.createElement('div');n.id='aiSummary';n.hidden=true;document.body.appendChild(n)}})();
