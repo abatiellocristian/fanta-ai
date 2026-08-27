@@ -3,8 +3,9 @@ name: FantAbba Database Refresh
 on:
   workflow_dispatch:
   push:
-    branches:
-      - main
+    branches: [main]
+  schedule:
+    - cron: '17 */6 * * *'
 
 permissions:
   contents: write
@@ -15,9 +16,9 @@ concurrency:
 
 jobs:
   refresh:
-    name: Build full 26/27 database
+    name: Build and validate 26/27 database
     runs-on: ubuntu-24.04
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -29,7 +30,7 @@ jobs:
           cache: pip
 
       - name: Install dependencies
-        run: python -m pip install --disable-pip-version-check requests beautifulsoup4 lxml
+        run: python -m pip install --disable-pip-version-check requests beautifulsoup4 lxml pandas
 
       - name: Refresh database
         run: python scripts/refresh_full.py
@@ -41,13 +42,14 @@ jobs:
           python - <<'PY'
           import json
           from pathlib import Path
-          p = Path('data/players.json')
-          if not p.exists():
-              raise SystemExit('players.json non trovato')
-          data = json.loads(p.read_text(encoding='utf-8'))
-          if not isinstance(data, list) or len(data) < 600:
-              raise SystemExit(f'Database incompleto: {len(data) if isinstance(data,list) else "formato non valido"} giocatori')
+          p=Path('data/players.json')
+          data=json.loads(p.read_text(encoding='utf-8'))
+          if not isinstance(data,list) or len(data)<600: raise SystemExit(f'Database incompleto: {len(data) if isinstance(data,list) else "invalid"}')
+          roles={x.get('role') for x in data}
+          if not {'P','D','C','A'}<=roles: raise SystemExit(f'Ruoli incompleti: {roles}')
           print(f'Database valido: {len(data)} giocatori')
+          print('Prezzi reali 8x500:',sum(x.get('auctionDataType')=='real' for x in data))
+          print('A Yildiz:',[x for x in data if x.get('name','').lower()=='yildiz'])
           PY
 
       - name: Commit database
@@ -55,9 +57,4 @@ jobs:
           git config user.name 'FantAbba Bot'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add data/players.json data/meta.json
-          if git diff --cached --quiet; then
-            echo 'Nessuna modifica al database.'
-          else
-            git commit -m 'chore: update FantAbba 26/27 database'
-            git push
-          fi
+          if git diff --cached --quiet; then echo 'Nessuna modifica al database.'; else git commit -m 'chore: refresh FantAbba 26/27 data'; git push; fi
