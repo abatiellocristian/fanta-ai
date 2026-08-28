@@ -449,7 +449,7 @@
   },
   {
     "name": "Pizzignacco",
-    "team": "MON",
+    "team": "",
     "role": "P",
     "classicRole": "P",
     "quotation": 2,
@@ -5951,7 +5951,7 @@
   },
   {
     "name": "Fabbian",
-    "team": "FIO",
+    "team": "PAR",
     "role": "C",
     "classicRole": "C",
     "quotation": 18,
@@ -7883,7 +7883,7 @@
   },
   {
     "name": "D'Andrea",
-    "team": "SAS",
+    "team": "",
     "role": "C",
     "classicRole": "C",
     "quotation": 1,
@@ -9129,7 +9129,7 @@
   },
   {
     "name": "Morata",
-    "team": "COM",
+    "team": "",
     "role": "A",
     "classicRole": "A",
     "quotation": 16,
@@ -9283,7 +9283,7 @@
   },
   {
     "name": "Cheddira",
-    "team": "NAP",
+    "team": "",
     "role": "A",
     "classicRole": "A",
     "quotation": 11,
@@ -9325,7 +9325,7 @@
   },
   {
     "name": "Ngonge",
-    "team": "NAP",
+    "team": "MON",
     "role": "A",
     "classicRole": "A",
     "quotation": 11,
@@ -9759,7 +9759,7 @@
   },
   {
     "name": "Artistico",
-    "team": "LAZ",
+    "team": "",
     "role": "A",
     "classicRole": "A",
     "quotation": 3,
@@ -9955,7 +9955,7 @@
   },
   {
     "name": "Colley M.",
-    "team": "FRO",
+    "team": "",
     "role": "A",
     "classicRole": "A",
     "quotation": 1,
