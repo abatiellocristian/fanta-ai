@@ -1835,7 +1835,7 @@
   },
   {
     "name": "Pedersen",
-    "team": "TOR",
+    "team": "",
     "role": "D",
     "classicRole": "D",
     "quotation": 17,
@@ -5489,7 +5489,7 @@
   },
   {
     "name": "Ricci",
-    "team": "MIL",
+    "team": "COM",
     "role": "C",
     "classicRole": "C",
     "quotation": 24,
@@ -6007,7 +6007,7 @@
   },
   {
     "name": "Miretti",
-    "team": "JUV",
+    "team": "",
     "role": "C",
     "classicRole": "C",
     "quotation": 18,
@@ -6889,7 +6889,7 @@
   },
   {
     "name": "Asllani",
-    "team": "INT",
+    "team": "",
     "role": "C",
     "classicRole": "C",
     "quotation": 8,
@@ -7421,7 +7421,7 @@
   },
   {
     "name": "Ciervo",
-    "team": "SAS",
+    "team": "CAG",
     "role": "C",
     "classicRole": "C",
     "quotation": 4,
@@ -7687,7 +7687,7 @@
   },
   {
     "name": "Kouda",
-    "team": "PAR",
+    "team": "",
     "role": "C",
     "classicRole": "C",
     "quotation": 2,
@@ -8205,7 +8205,7 @@
   },
   {
     "name": "Nuamah",
-    "team": "SAS",
+    "team": "",
     "role": "C",
     "classicRole": "C",
     "quotation": 1,
@@ -8415,7 +8415,7 @@
   },
   {
     "name": "Leao",
-    "team": "MIL",
+    "team": "",
     "role": "A",
     "classicRole": "A",
     "quotation": 67,
@@ -8695,7 +8695,7 @@
   },
   {
     "name": "Esposito S.",
-    "team": "CAG",
+    "team": "SAS",
     "role": "A",
     "classicRole": "A",
     "quotation": 39,
@@ -9843,7 +9843,7 @@
   },
   {
     "name": "Okoro",
-    "team": "VEN",
+    "team": "",
     "role": "A",
     "classicRole": "A",
     "quotation": 3,
@@ -10025,7 +10025,7 @@
   },
   {
     "name": "Gabrielloni",
-    "team": "COM",
+    "team": "",
     "role": "A",
     "classicRole": "A",
     "quotation": 1,
