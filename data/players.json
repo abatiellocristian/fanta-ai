@@ -196,6 +196,20 @@
     "auctionUpdated": null
   },
   {
+    "name": "Corvi",
+    "team": "PAR",
+    "role": "P",
+    "classicRole": "P",
+    "quotation": 16,
+    "fvm": null,
+    "auctionAvg8x500": null,
+    "auctionAvg": null,
+    "auctionAvgFormat": "8 squadre / 500 crediti",
+    "auctionSource": null,
+    "auctionDataType": "insufficient_data",
+    "auctionUpdated": null
+  },
+  {
     "name": "De Gea",
     "team": "FIO",
     "role": "P",
@@ -439,20 +453,6 @@
     "role": "P",
     "classicRole": "P",
     "quotation": 3,
-    "fvm": null,
-    "auctionAvg8x500": null,
-    "auctionAvg": null,
-    "auctionAvgFormat": "8 squadre / 500 crediti",
-    "auctionSource": null,
-    "auctionDataType": "insufficient_data",
-    "auctionUpdated": null
-  },
-  {
-    "name": "Corvi",
-    "team": "PAR",
-    "role": "P",
-    "classicRole": "P",
-    "quotation": 2,
     "fvm": null,
     "auctionAvg8x500": null,
     "auctionAvg": null,
