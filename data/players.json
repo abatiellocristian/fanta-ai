@@ -5559,7 +5559,7 @@
   },
   {
     "name": "Fofana",
-    "team": "MIL",
+    "team": "",
     "role": "C",
     "classicRole": "C",
     "quotation": 26,
@@ -7827,7 +7827,7 @@
   },
   {
     "name": "Cajuste",
-    "team": "NAP",
+    "team": "",
     "role": "C",
     "classicRole": "C",
     "quotation": 3,
@@ -9437,7 +9437,7 @@
   },
   {
     "name": "Ratkov",
-    "team": "LAZ",
+    "team": "",
     "role": "A",
     "classicRole": "A",
     "quotation": 20,
@@ -9507,7 +9507,7 @@
   },
   {
     "name": "Vaz",
-    "team": "ROM",
+    "team": "",
     "role": "A",
     "classicRole": "A",
     "quotation": 17,
