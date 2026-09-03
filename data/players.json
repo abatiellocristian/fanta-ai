@@ -2842,20 +2842,6 @@
     "auctionUpdated": null
   },
   {
-    "name": "Fortini",
-    "team": "TOR",
-    "role": "D",
-    "classicRole": "D",
-    "quotation": 10,
-    "fvm": null,
-    "auctionAvg8x500": null,
-    "auctionAvg": null,
-    "auctionAvgFormat": "8 squadre / 500 crediti",
-    "auctionSource": null,
-    "auctionDataType": "insufficient_data",
-    "auctionUpdated": null
-  },
-  {
     "name": "Gaspar",
     "team": "LEC",
     "role": "D",
@@ -3192,6 +3178,20 @@
     "auctionUpdated": null
   },
   {
+    "name": "Fortini",
+    "team": "TOR",
+    "role": "D",
+    "classicRole": "D",
+    "quotation": 8,
+    "fvm": null,
+    "auctionAvg8x500": null,
+    "auctionAvg": null,
+    "auctionAvgFormat": "8 squadre / 500 crediti",
+    "auctionSource": null,
+    "auctionDataType": "insufficient_data",
+    "auctionUpdated": null
+  },
+  {
     "name": "Lulli",
     "team": "ROM",
     "role": "D",
@@ -3418,6 +3418,20 @@
   {
     "name": "Palma",
     "team": "UDI",
+    "role": "D",
+    "classicRole": "D",
+    "quotation": 7,
+    "fvm": null,
+    "auctionAvg8x500": null,
+    "auctionAvg": null,
+    "auctionAvgFormat": "8 squadre / 500 crediti",
+    "auctionSource": null,
+    "auctionDataType": "insufficient_data",
+    "auctionUpdated": null
+  },
+  {
+    "name": "Rodriguez",
+    "team": "TOR",
     "role": "D",
     "classicRole": "D",
     "quotation": 7,
@@ -8415,7 +8429,7 @@
   },
   {
     "name": "Iaccarino",
-    "team": "NAP",
+    "team": "",
     "role": "C",
     "classicRole": "C",
     "quotation": 1,
@@ -10416,6 +10430,20 @@
     "auctionUpdated": null
   },
   {
+    "name": "De Martis",
+    "team": "PAR",
+    "role": "A",
+    "classicRole": "A",
+    "quotation": 1,
+    "fvm": null,
+    "auctionAvg8x500": null,
+    "auctionAvg": null,
+    "auctionAvgFormat": "8 squadre / 500 crediti",
+    "auctionSource": null,
+    "auctionDataType": "insufficient_data",
+    "auctionUpdated": null
+  },
+  {
     "name": "Esteban",
     "team": "LEC",
     "role": "A",
@@ -10431,7 +10459,7 @@
   },
   {
     "name": "Fumagalli",
-    "team": "COM",
+    "team": "INT",
     "role": "A",
     "classicRole": "A",
     "quotation": 1,
@@ -10585,7 +10613,7 @@
   },
   {
     "name": "Sgarbi L.",
-    "team": "NAP",
+    "team": "",
     "role": "A",
     "classicRole": "A",
     "quotation": 1,
