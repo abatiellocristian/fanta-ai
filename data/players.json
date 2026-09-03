@@ -4844,6 +4844,20 @@
     "auctionUpdated": null
   },
   {
+    "name": "Vladimirov",
+    "team": "MIL",
+    "role": "D",
+    "classicRole": "D",
+    "quotation": 1,
+    "fvm": null,
+    "auctionAvg8x500": null,
+    "auctionAvg": null,
+    "auctionAvgFormat": "8 squadre / 500 crediti",
+    "auctionSource": null,
+    "auctionDataType": "insufficient_data",
+    "auctionUpdated": null
+  },
+  {
     "name": "Vogliacco",
     "team": "",
     "role": "D",
@@ -6342,20 +6356,6 @@
     "auctionUpdated": null
   },
   {
-    "name": "Traore",
-    "team": "GEN",
-    "role": "C",
-    "classicRole": "C",
-    "quotation": 17,
-    "fvm": null,
-    "auctionAvg8x500": null,
-    "auctionAvg": null,
-    "auctionAvgFormat": "8 squadre / 500 crediti",
-    "auctionSource": null,
-    "auctionDataType": "insufficient_data",
-    "auctionUpdated": null
-  },
-  {
     "name": "Gineitis",
     "team": "TOR",
     "role": "C",
@@ -6580,6 +6580,20 @@
     "auctionUpdated": null
   },
   {
+    "name": "Traore",
+    "team": "GEN",
+    "role": "C",
+    "classicRole": "C",
+    "quotation": 15,
+    "fvm": null,
+    "auctionAvg8x500": null,
+    "auctionAvg": null,
+    "auctionAvgFormat": "8 squadre / 500 crediti",
+    "auctionSource": null,
+    "auctionDataType": "insufficient_data",
+    "auctionUpdated": null
+  },
+  {
     "name": "Berisha",
     "team": "LEC",
     "role": "C",
@@ -6725,6 +6739,20 @@
     "role": "C",
     "classicRole": "C",
     "quotation": 14,
+    "fvm": null,
+    "auctionAvg8x500": null,
+    "auctionAvg": null,
+    "auctionAvgFormat": "8 squadre / 500 crediti",
+    "auctionSource": null,
+    "auctionDataType": "insufficient_data",
+    "auctionUpdated": null
+  },
+  {
+    "name": "El Shaarawy",
+    "team": "GEN",
+    "role": "C",
+    "classicRole": "C",
+    "quotation": 13,
     "fvm": null,
     "auctionAvg8x500": null,
     "auctionAvg": null,
@@ -7364,20 +7392,6 @@
     "auctionUpdated": null
   },
   {
-    "name": "Robinho Jr.",
-    "team": "GEN",
-    "role": "C",
-    "classicRole": "C",
-    "quotation": 7,
-    "fvm": null,
-    "auctionAvg8x500": null,
-    "auctionAvg": null,
-    "auctionAvgFormat": "8 squadre / 500 crediti",
-    "auctionSource": null,
-    "auctionDataType": "insufficient_data",
-    "auctionUpdated": null
-  },
-  {
     "name": "Chakvetadze",
     "team": "UDI",
     "role": "C",
@@ -7688,6 +7702,20 @@
   {
     "name": "Mout",
     "team": "MON",
+    "role": "C",
+    "classicRole": "C",
+    "quotation": 5,
+    "fvm": null,
+    "auctionAvg8x500": null,
+    "auctionAvg": null,
+    "auctionAvgFormat": "8 squadre / 500 crediti",
+    "auctionSource": null,
+    "auctionDataType": "insufficient_data",
+    "auctionUpdated": null
+  },
+  {
+    "name": "Robinho Jr.",
+    "team": "GEN",
     "role": "C",
     "classicRole": "C",
     "quotation": 5,
