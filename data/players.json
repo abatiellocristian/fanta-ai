@@ -323,7 +323,7 @@
   },
   {
     "name": "Paleari",
-    "team": "TOR",
+    "team": "",
     "role": "P",
     "classicRole": "P",
     "quotation": 8,
@@ -4047,7 +4047,7 @@
   },
   {
     "name": "Macchioni",
-    "team": "SAS",
+    "team": "",
     "role": "D",
     "classicRole": "D",
     "quotation": 2,
@@ -7281,7 +7281,7 @@
   },
   {
     "name": "Koutsoupias",
-    "team": "FRO",
+    "team": "",
     "role": "C",
     "classicRole": "C",
     "quotation": 8,
@@ -7365,7 +7365,7 @@
   },
   {
     "name": "Anjorin",
-    "team": "TOR",
+    "team": "",
     "role": "C",
     "classicRole": "C",
     "quotation": 7,
@@ -8149,7 +8149,7 @@
   },
   {
     "name": "Barak",
-    "team": "FIO",
+    "team": "",
     "role": "C",
     "classicRole": "C",
     "quotation": 1,
@@ -8513,7 +8513,7 @@
   },
   {
     "name": "Leone K.",
-    "team": "SAS",
+    "team": "",
     "role": "C",
     "classicRole": "C",
     "quotation": 1,
@@ -9367,7 +9367,7 @@
   },
   {
     "name": "Borrelli",
-    "team": "CAG",
+    "team": "",
     "role": "A",
     "classicRole": "A",
     "quotation": 22,
