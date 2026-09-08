@@ -1498,20 +1498,6 @@
     "auctionUpdated": null
   },
   {
-    "name": "Doekhi",
-    "team": "LAZ",
-    "role": "D",
-    "classicRole": "D",
-    "quotation": 23,
-    "fvm": null,
-    "auctionAvg8x500": null,
-    "auctionAvg": null,
-    "auctionAvgFormat": "8 squadre / 500 crediti",
-    "auctionSource": null,
-    "auctionDataType": "insufficient_data",
-    "auctionUpdated": null
-  },
-  {
     "name": "Miranda J.",
     "team": "BOL",
     "role": "D",
@@ -1640,6 +1626,20 @@
   {
     "name": "Celik",
     "team": "JUV",
+    "role": "D",
+    "classicRole": "D",
+    "quotation": 21,
+    "fvm": null,
+    "auctionAvg8x500": null,
+    "auctionAvg": null,
+    "auctionAvgFormat": "8 squadre / 500 crediti",
+    "auctionSource": null,
+    "auctionDataType": "insufficient_data",
+    "auctionUpdated": null
+  },
+  {
+    "name": "Doekhi",
+    "team": "LAZ",
     "role": "D",
     "classicRole": "D",
     "quotation": 21,
@@ -1974,6 +1974,20 @@
     "auctionUpdated": null
   },
   {
+    "name": "Leite",
+    "team": "LAZ",
+    "role": "D",
+    "classicRole": "D",
+    "quotation": 17,
+    "fvm": null,
+    "auctionAvg8x500": null,
+    "auctionAvg": null,
+    "auctionAvgFormat": "8 squadre / 500 crediti",
+    "auctionSource": null,
+    "auctionDataType": "insufficient_data",
+    "auctionUpdated": null
+  },
+  {
     "name": "Marcandalli",
     "team": "GEN",
     "role": "D",
@@ -2115,20 +2129,6 @@
   },
   {
     "name": "Pedraza",
-    "team": "LAZ",
-    "role": "D",
-    "classicRole": "D",
-    "quotation": 16,
-    "fvm": null,
-    "auctionAvg8x500": null,
-    "auctionAvg": null,
-    "auctionAvgFormat": "8 squadre / 500 crediti",
-    "auctionSource": null,
-    "auctionDataType": "insufficient_data",
-    "auctionUpdated": null
-  },
-  {
-    "name": "Provstgaard",
     "team": "LAZ",
     "role": "D",
     "classicRole": "D",
@@ -2408,6 +2408,20 @@
     "auctionUpdated": null
   },
   {
+    "name": "Provstgaard",
+    "team": "LAZ",
+    "role": "D",
+    "classicRole": "D",
+    "quotation": 14,
+    "fvm": null,
+    "auctionAvg8x500": null,
+    "auctionAvg": null,
+    "auctionAvgFormat": "8 squadre / 500 crediti",
+    "auctionSource": null,
+    "auctionDataType": "insufficient_data",
+    "auctionUpdated": null
+  },
+  {
     "name": "Tavares",
     "team": "LAZ",
     "role": "D",
@@ -2562,20 +2576,6 @@
     "auctionUpdated": null
   },
   {
-    "name": "Sutalo",
-    "team": "LAZ",
-    "role": "D",
-    "classicRole": "D",
-    "quotation": 13,
-    "fvm": null,
-    "auctionAvg8x500": null,
-    "auctionAvg": null,
-    "auctionAvgFormat": "8 squadre / 500 crediti",
-    "auctionSource": null,
-    "auctionDataType": "insufficient_data",
-    "auctionUpdated": null
-  },
-  {
     "name": "Walukiewicz",
     "team": "SAS",
     "role": "D",
@@ -2717,7 +2717,7 @@
   },
   {
     "name": "Zappa",
-    "team": "CAG",
+    "team": "",
     "role": "D",
     "classicRole": "D",
     "quotation": 12,
@@ -2788,6 +2788,20 @@
   {
     "name": "Mina",
     "team": "CAG",
+    "role": "D",
+    "classicRole": "D",
+    "quotation": 11,
+    "fvm": null,
+    "auctionAvg8x500": null,
+    "auctionAvg": null,
+    "auctionAvgFormat": "8 squadre / 500 crediti",
+    "auctionSource": null,
+    "auctionDataType": "insufficient_data",
+    "auctionUpdated": null
+  },
+  {
+    "name": "Sutalo",
+    "team": "LAZ",
     "role": "D",
     "classicRole": "D",
     "quotation": 11,
