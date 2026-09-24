@@ -2884,6 +2884,20 @@
     "auctionUpdated": null
   },
   {
+    "name": "Alaba",
+    "team": "UDI",
+    "role": "D",
+    "classicRole": "D",
+    "quotation": 10,
+    "fvm": null,
+    "auctionAvg8x500": null,
+    "auctionAvg": null,
+    "auctionAvgFormat": "8 squadre / 500 crediti",
+    "auctionSource": null,
+    "auctionDataType": "insufficient_data",
+    "auctionUpdated": null
+  },
+  {
     "name": "Buongiorno",
     "team": "NAP",
     "role": "D",
