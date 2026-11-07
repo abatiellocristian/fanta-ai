@@ -855,7 +855,7 @@
   },
   {
     "name": "Piana",
-    "team": "UDI",
+    "team": "",
     "role": "P",
     "classicRole": "P",
     "quotation": 1,
@@ -1247,7 +1247,7 @@
   },
   {
     "name": "Zacchi",
-    "team": "SAS",
+    "team": "",
     "role": "P",
     "classicRole": "P",
     "quotation": 1,
@@ -3809,7 +3809,7 @@
   },
   {
     "name": "Salah Eddine",
-    "team": "ROM",
+    "team": "",
     "role": "D",
     "classicRole": "D",
     "quotation": 4,
@@ -3837,7 +3837,7 @@
   },
   {
     "name": "Valentini",
-    "team": "FIO",
+    "team": "",
     "role": "D",
     "classicRole": "D",
     "quotation": 4,
@@ -4299,7 +4299,7 @@
   },
   {
     "name": "Brorsson",
-    "team": "MON",
+    "team": "",
     "role": "D",
     "classicRole": "D",
     "quotation": 1,
@@ -4355,7 +4355,7 @@
   },
   {
     "name": "Cuenca A.",
-    "team": "COM",
+    "team": "",
     "role": "D",
     "classicRole": "D",
     "quotation": 1,
@@ -4523,7 +4523,7 @@
   },
   {
     "name": "Gelli J.",
-    "team": "FRO",
+    "team": "",
     "role": "D",
     "classicRole": "D",
     "quotation": 1,
@@ -4873,7 +4873,7 @@
   },
   {
     "name": "Patric",
-    "team": "LAZ",
+    "team": "",
     "role": "D",
     "classicRole": "D",
     "quotation": 1,
@@ -4901,7 +4901,7 @@
   },
   {
     "name": "Pellini",
-    "team": "TOR",
+    "team": "",
     "role": "D",
     "classicRole": "D",
     "quotation": 1,
@@ -4971,7 +4971,7 @@
   },
   {
     "name": "Raterink",
-    "team": "CAG",
+    "team": "",
     "role": "D",
     "classicRole": "D",
     "quotation": 1,
@@ -4985,7 +4985,7 @@
   },
   {
     "name": "Reale",
-    "team": "ROM",
+    "team": "",
     "role": "D",
     "classicRole": "D",
     "quotation": 1,
@@ -5069,7 +5069,7 @@
   },
   {
     "name": "Seck",
-    "team": "ROM",
+    "team": "",
     "role": "D",
     "classicRole": "D",
     "quotation": 1,
@@ -7841,7 +7841,7 @@
   },
   {
     "name": "Mazzitelli",
-    "team": "COM",
+    "team": "",
     "role": "C",
     "classicRole": "C",
     "quotation": 4,
@@ -8387,7 +8387,7 @@
   },
   {
     "name": "Cuenca H.",
-    "team": "GEN",
+    "team": "",
     "role": "C",
     "classicRole": "C",
     "quotation": 1,
@@ -8485,7 +8485,7 @@
   },
   {
     "name": "Doumbia C.B.",
-    "team": "GEN",
+    "team": "",
     "role": "C",
     "classicRole": "C",
     "quotation": 1,
@@ -8751,7 +8751,7 @@
   },
   {
     "name": "Kumi",
-    "team": "SAS",
+    "team": "",
     "role": "C",
     "classicRole": "C",
     "quotation": 1,
@@ -10781,7 +10781,7 @@
   },
   {
     "name": "Braschi",
-    "team": "FIO",
+    "team": "",
     "role": "A",
     "classicRole": "A",
     "quotation": 1,
@@ -11033,7 +11033,7 @@
   },
   {
     "name": "Mikolajewski",
-    "team": "PAR",
+    "team": "",
     "role": "A",
     "classicRole": "A",
     "quotation": 1,
@@ -11075,7 +11075,7 @@
   },
   {
     "name": "Mustapha",
-    "team": "COM",
+    "team": "",
     "role": "A",
     "classicRole": "A",
     "quotation": 1,
